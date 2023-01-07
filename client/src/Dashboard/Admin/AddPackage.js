@@ -44,15 +44,16 @@ const AddPackage = () => {
             .then(imgData => {
                 if (imgData.success) {
 
-                    const product = {
+                    const addPackage = {
                         img: imgData.data.url,
+                        price: data.price,
                         title: data.title,
                         email: author.email,
                         description: data.description,
                         author: author,
                     }
 
-                    fetch(`https://used-products-resale-server-vert.vercel.app/addProduct`, {
+                    fetch(`http://localhost:5000/addPackage`, {
                         method: 'POST',
                         headers: {
 
@@ -60,14 +61,14 @@ const AddPackage = () => {
                             authorization: `bearer ${localStorage.getItem('accessToken')}`
 
                         },
-                        body: JSON.stringify(product)
+                        body: JSON.stringify(addPackage)
                     })
                         .then(res => res.json())
                         .then(data => {
                             if (data.acknowledged) {
                                 console.log(data);
                                 setIsloader(false)
-                                toast.success('your product hasbeen process please waite for admin aproved')
+                                toast.success('Your Package added successfully')
                                 navigate('/dashboard/sellerProducts')
                             }
                         })

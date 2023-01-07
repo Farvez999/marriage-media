@@ -37,6 +37,7 @@ function verifyJWT(req, res, next) {
 async function run() {
     try {
         const usersCollection = client.db("marriage-media").collection("users");
+        const packagesCollection = client.db("marriage-media").collection("package");
         const categoriesCollection = client.db("used-products-resale-portal").collection("categories");
         const productsCollection = client.db("used-products-resale-portal").collection("products");
         const bookingsCollection = client.db("used-products-resale-portal").collection("bookings");
@@ -92,6 +93,23 @@ async function run() {
             const query = { email }
             const user = await usersCollection.findOne(query);
             res.send({ isAdmin: user?.role === 'admin' });
+        })
+
+
+        //Addmin add Package
+        app.post('/addPackage', verifyJWT, async (req, res) => {
+            const package = req.body;
+            const result = await packagesCollection.insertOne(package);
+            const id =
+                res.send(result);
+        })
+
+        //All category
+        app.get('/packages', async (req, res) => {
+            const query = {};
+            const cursors = packagesCollection.find(query)
+            const package = await cursors.toArray()
+            res.send(package)
         })
         // ---------------------------------------------------------------
 
