@@ -12,15 +12,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mordayw.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-
-client.connect(err => {
-    const collection = client.db("test").collection("devices");
-    // perform actions on the collection object
-    client.close();
-});
 
 function verifyJWT(req, res, next) {
 
@@ -43,7 +36,7 @@ function verifyJWT(req, res, next) {
 
 async function run() {
     try {
-        const usersCollection = client.db("used-products-resale-portal").collection("users");
+        const usersCollection = client.db("marriage-media").collection("users");
         const categoriesCollection = client.db("used-products-resale-portal").collection("categories");
         const productsCollection = client.db("used-products-resale-portal").collection("products");
         const bookingsCollection = client.db("used-products-resale-portal").collection("bookings");
@@ -83,6 +76,24 @@ async function run() {
             }
             res.status(403).send({ accessToken: '' })
         });
+
+        // ---------------------------------------------------------------
+        //User post
+        app.post('/users', async (req, res) => {
+            const user = req.body;
+            const result = await usersCollection.insertOne(user);
+            res.send(result);
+        })
+
+
+        // User get Admin permistion
+        app.get('/users/admin/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email }
+            const user = await usersCollection.findOne(query);
+            res.send({ isAdmin: user?.role === 'admin' });
+        })
+        // ---------------------------------------------------------------
 
         //All category
         app.get('/categories', async (req, res) => {
@@ -206,12 +217,7 @@ async function run() {
             res.send(users)
         })
 
-        //User post
-        app.post('/users', async (req, res) => {
-            const user = req.body;
-            const result = await usersCollection.insertOne(user);
-            res.send(result);
-        })
+
 
         app.get('/allUser/:role', async (req, res) => {
             const role = req.params.role;
@@ -220,13 +226,7 @@ async function run() {
             res.send(users);
         })
 
-        // User get Admin permistion
-        app.get('/users/admin/:email', async (req, res) => {
-            const email = req.params.email;
-            const query = { email }
-            const user = await usersCollection.findOne(query);
-            res.send({ isAdmin: user?.role === 'admin' });
-        })
+
 
         //User get Seller permistion
         app.get('/users/seller/:email', async (req, res) => {
