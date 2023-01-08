@@ -15,6 +15,7 @@ const Navbar = () => {
     const menuItem = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/package'>Package</Link></li>
+        <li className='font-semibold'><Link to='/search'>Search</Link></li>
         {/* <li className='font-semibold'><Link to='/appoinment'>Appoinment</Link></li>
         <li className='font-semibold'><Link to='/reviews'>Reviews</Link></li>
         <li className='font-semibold'><Link to='/contactUs'>Contact Us</Link></li> */}
@@ -36,7 +37,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className='mx-6 bg-white sticky top-0 z-50'>
+        <div className=' bg-white sticky top-0 z-50'>
             <div className="navbar flex justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">

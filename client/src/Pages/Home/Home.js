@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
+import NavHome from '../Shared/Navbar/NavHome';
 import Privacy from './Privacy/Privacy';
 import Work from './Work/Work';
 
@@ -50,6 +51,7 @@ const Home = () => {
         //     </div>
         // </div>
         <div>
+            <NavHome></NavHome>
             <Work></Work>
             <Privacy></Privacy>
         </div>
