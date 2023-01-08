@@ -1,3 +1,6 @@
+.body{
+  z-index: -999;
+}
 .App {
   text-align: center;
 }

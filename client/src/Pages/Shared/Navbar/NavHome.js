@@ -4,8 +4,8 @@ import Navbar from "./Navbar";
 const NavHome = () => {
   return (
     <div
-      className="min-h-screen bg-base-200 "
-      style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}
+      className="min-h-screen bg-base-200 bg-cover "
+      style={{ backgroundImage: `url("https://sensiblematch.com/static/media/marriage-2x.59c58c28.webp")` }}
     >
       {/* <Navbar></Navbar> */}
       <div className="flex justify-end mr-6 p-2 gap-2">
@@ -105,13 +105,14 @@ const NavHome = () => {
           </div>
         </div>
 
-        <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
-          <p className="py-6">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+        <div className="text-center lg:text-left bg-base-800">
+          <h1 className="text-3xl font-bold text-white">BANGLADESH MATRIMONIAL PLATFORM</h1>
+          <p className="py-2 font-bold text-white">
+          TRUSTED, SECURE, RESULTS DRIVEN
           </p>
+          <button className="btn btn-primary text-white bg-green-500 p-1">
+                Register Free
+              </button>
         </div>
       </div>
     </div>
