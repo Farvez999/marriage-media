@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaArrowRight } from "react-icons/fa";
 
 const Privacy = () => {
     return (
@@ -18,7 +17,7 @@ const Privacy = () => {
                             <p className=""> ➔ I want to find a match for my daughter/son, niece/nephew. Is this site the right platform for that?</p>
                             <p className="py-2">These are valid concerns with any matrimonial service online. However, we thought of the solutions already!</p>
 
-                            <button className="btn btn-outline bg-green-500 py-4">Get Started</button>
+                            <button className="btn btn-outline bg-green-500 text-white py-4">Get Started</button>
                         </div>
 
                         <div className='mt-4'>
@@ -31,7 +30,7 @@ const Privacy = () => {
                             <p className="py-2"> ➔ I want to find a match for my daughter/son, niece/nephew. Is this site the right platform for that?</p>
 
 
-                            <button className="btn btn-outline bg-green-500 py-4">Get Started</button>
+                            <button className="btn btn-outline bg-green-500 text-white py-4">Get Started</button>
                         </div>
 
                     </div>
