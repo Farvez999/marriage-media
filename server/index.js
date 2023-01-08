@@ -38,6 +38,8 @@ async function run() {
     try {
         const usersCollection = client.db("marriage-media").collection("users");
         const packagesCollection = client.db("marriage-media").collection("package");
+        const priviledgesCollection = client.db("marriage-media").collection("priviledges");
+
         const categoriesCollection = client.db("used-products-resale-portal").collection("categories");
         const productsCollection = client.db("used-products-resale-portal").collection("products");
         const bookingsCollection = client.db("used-products-resale-portal").collection("bookings");
@@ -111,6 +113,47 @@ async function run() {
             const package = await cursors.toArray()
             res.send(package)
         })
+
+        app.post('/addPriviledges', verifyJWT, async (req, res) => {
+            const package = req.body;
+            const result = await priviledgesCollection.insertOne(package);
+            res.send(result);
+        })
+        //Addmin add Priviledges
+        app.post('/addPriviledges', verifyJWT, async (req, res) => {
+            console.log(req.body.package);
+            const query = {
+                package: req.body.package
+
+            }
+            const abc = await priviledgesCollection.findOne(query);
+            console.log(abc.title);
+            const def = [...abc.title, req.body.title];
+            // create a filter for a movie to update
+            const filter = { package: query };
+            // this option instructs the method to create a document if no documents match the filter
+            const options = { upsert: true };
+            // create a document that sets the plot of the movie
+            const updateDoc = {
+                $set: {
+                    title: [...def, req.body.title,]
+                },
+            };
+            const result = await priviledgesCollection.updateOne(filter, updateDoc, options);
+            console.log(result);
+            // const result = await priviledgesCollection.insertOne(priviledges);
+            res.send(result);
+        })
+
+        // All Priviledges
+        app.get('/priviledges', async (req, res) => {
+            const query = {};
+            const cursors = priviledgesCollection.find(query)
+            const priviledge = await cursors.toArray()
+            res.send(priviledge)
+        })
+
+
         // ---------------------------------------------------------------
 
         //All category

@@ -40,8 +40,9 @@ const DashBoardLayout = () => {
 
                         {
                             isAdmin && <>
+                            <li><Link to={`/dashboard/addPackage`}>Add A Package</Link></li>
+                            <li><Link to={`/dashboard/addPriviledges`}>Add A Priviledges</Link></li>
                                 <li><Link to={`/dashboard/allSeller`}>All Seller</Link></li>
-                                <li><Link to={`/dashboard/addPackage`}>All Package</Link></li>
                             </>
                         }
                     </ul>

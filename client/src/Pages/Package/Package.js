@@ -2,6 +2,7 @@ import React from 'react';
 import Loading from "../Shared/Loader/Loading"
 import { useQuery } from '@tanstack/react-query';
 import PackageCard from './PackageCard';
+import PriviledgesCard from './PriviledgesCard';
 
 const Package = () => {
 
@@ -9,6 +10,16 @@ const Package = () => {
         queryKey: ['packages'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/packages`)
+            const data = await res.json()
+            return data
+
+        }
+    })
+
+    const { data: priviledges = [] } = useQuery({
+        queryKey: ['priviledges'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/priviledges`)
             const data = await res.json()
             return data
 
@@ -30,6 +41,19 @@ const Package = () => {
                         key={pac._id}
                         pac={pac}
                     ></PackageCard>)
+                }
+            </div>
+
+            <div className="max-w-2xl mx-auto mb-16 text-center">
+                    <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
+                    <h2 className="text-4xl font-bold lg:text-5xl">Choose your best plan</h2>
+                </div>
+            <div className='grid mt-4 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+                {
+                    priviledges.map(priviledge => <PriviledgesCard
+                        key={priviledge._id}
+                        priviledge={priviledge}
+                    ></PriviledgesCard>)
                 }
             </div>
         </div>

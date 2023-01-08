@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom"
 import AddPackage from "../Dashboard/Admin/AddPackage"
+import AddPriviledges from "../Dashboard/Admin/AddPriviledges"
 import AllSeller from "../Dashboard/User/AllSeller"
 import DashBoardLayout from "../Layout/DashBoardLayout"
 import Main from "../Layout/Main"
@@ -71,6 +72,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addPackage',
                 element: <AdminRoute><AddPackage></AddPackage></AdminRoute>
+            },
+            {
+                path: '/dashboard/addPriviledges',
+                element: <AdminRoute><AddPriviledges></AddPriviledges></AdminRoute>
             },
             // {
             //     path: '/dashboard/allBuyer',
