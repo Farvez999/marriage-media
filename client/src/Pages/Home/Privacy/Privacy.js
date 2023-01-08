@@ -2,9 +2,9 @@ import React from 'react';
 
 const Privacy = () => {
     return (
-        <div className='mx-32'>
+        <div className='mx-8 my-8'>
             <div className="hero min-h-screen">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col lg:flex-row-reverse sm:col-span-12">
                     <img style={{ height: 592, width: 400 }} src="https://sensiblematch.com/static/media/220-SM451149.a44e4148.jpg" />
                     <div className='text-left'>
                         <div>
@@ -21,7 +21,7 @@ const Privacy = () => {
                         </div>
 
                         <div className='mt-4'>
-                            <h1 className="text-2xl">Your Privacy Matters</h1>
+                            <h1 className="text-2xl">Why Choose SensibleMatch</h1>
                             <p className="py-6">Bangladesh has embraced the digital world. However, we still have doubts in our minds about using online services to find the perfect match for marriage.</p>
 
                             <h1> ➔ Bangladesh has embraced.</h1>
