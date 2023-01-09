@@ -4,8 +4,6 @@ import CallIcon from '@mui/icons-material/Call';
 import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
 
 const Footer = () => {
     return (

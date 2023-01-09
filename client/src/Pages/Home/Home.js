@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../Shared/Navbar/Navbar';
 import NavHome from '../Shared/Navbar/NavHome';
+import Blog from './Blog/Blog';
 import Privacy from './Privacy/Privacy';
 import Work from './Work/Work';
 
@@ -54,6 +55,7 @@ const Home = () => {
             <NavHome></NavHome>
             <Work></Work>
             <Privacy></Privacy>
+            <Blog/>
         </div>
 
     );

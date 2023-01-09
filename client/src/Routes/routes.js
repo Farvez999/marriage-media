@@ -4,7 +4,9 @@ import AddPriviledges from "../Dashboard/Admin/AddPriviledges"
 import AllSeller from "../Dashboard/User/AllSeller"
 import DashBoardLayout from "../Layout/DashBoardLayout"
 import Main from "../Layout/Main"
+import About from "../Pages/About/About"
 import Contacts from "../Pages/Contacts/Contacts"
+import Blog from "../Pages/Home/Blog/Blog"
 import Home from "../Pages/Home/Home"
 import Login from "../Pages/Login/Login"
 import Signup from "../Pages/Login/Signup"
@@ -32,8 +34,16 @@ const router = createBrowserRouter([
                 element: <Search />,
             },
             {
+                path: '/blog',
+                element: <Blog/>,
+            },
+            {
                 path: '/contacts',
                 element: <Contacts />,
+            },
+            {
+                path: '/about',
+                element: <About/>,
             },
             {
                 path: '/login',
