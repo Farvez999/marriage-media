@@ -4,6 +4,7 @@ import AddPriviledges from "../Dashboard/Admin/AddPriviledges"
 import AllSeller from "../Dashboard/User/AllSeller"
 import DashBoardLayout from "../Layout/DashBoardLayout"
 import Main from "../Layout/Main"
+import Contacts from "../Pages/Contacts/Contacts"
 import Home from "../Pages/Home/Home"
 import Login from "../Pages/Login/Login"
 import Signup from "../Pages/Login/Signup"
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
             {
                 path: '/search',
                 element: <Search />,
+            },
+            {
+                path: '/contacts',
+                element: <Contacts />,
             },
             {
                 path: '/login',

@@ -4,13 +4,15 @@ const Search = () => {
     return (
         <div>
             <div className="hero-content flex-col lg:flex-row-reverse">
-                <div className="card flex-shrink-0 w-full max-w-full shadow-2xl bg-base-100 bg-black bg-transparen75 bg-opacity-80">
+                <div className="card flex-shrink-0 w-full max-w-full shadow-2xl bg-base-100 bg-transparen75 bg-opacity-80">
                     <div className="card-body">
 
-                        <div className='grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900'>
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Looking For</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Looking For</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Looking For
                                     </option>
@@ -20,8 +22,10 @@ const Search = () => {
                                 </select>
                             </div>
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Marital Status</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Marital Status</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Doesn't Matter
                                     </option>
@@ -34,8 +38,10 @@ const Search = () => {
                                 </select>
                             </div>
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Have children</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Have children</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Doesn't Matter
                                     </option>
@@ -49,11 +55,13 @@ const Search = () => {
                         </div>
 
 
-                        <div className='grid grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900'>
 
                             <div className="form-control">
-                                <span className="label-text text-white text-left">Min Age</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Min Age</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -66,8 +74,10 @@ const Search = () => {
                             </div>
 
                             <div className="form-control">
-                                <span className="label-text text-white text-left">Max Age</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Max Age</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -80,8 +90,10 @@ const Search = () => {
                             </div>
 
                             <div className="form-control">
-                                <span className="label-text text-white text-left">Height</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Height</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -102,10 +114,12 @@ const Search = () => {
                         </div>
 
 
-                        <div className='grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900'>
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Religion</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Religion</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -118,8 +132,10 @@ const Search = () => {
                             </div>
 
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Country</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Country</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -132,8 +148,10 @@ const Search = () => {
                             </div>
 
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Education Level</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Education Level</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -151,8 +169,10 @@ const Search = () => {
                             </div>
 
                             <div className="form-control">
-                                <span className="label-text text-white text-left ">Profession</span>
-                                <select className="select w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Profession</span>
+                                </label>
+                                <select className="select w-full border-gray-400">
                                     <option disabled selected>
                                         Select
                                     </option>
