@@ -12,6 +12,7 @@ import Home from "../Pages/Home/Home"
 import Login from "../Pages/Login/Login"
 import Signup from "../Pages/Login/Signup"
 import Package from "../Pages/Package/Package"
+import Profile from "../Pages/Profile/Profile"
 import Search from "../Pages/Search/Search"
 import AdminRoute from "./AdminRoutes"
 import PrivateRoutes from "./PrivateRoutes"
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About/>,
+            },
+            {
+                path: '/profile',
+                element: <Profile/>,
             },
             {
                 path: '/login',

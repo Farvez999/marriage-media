@@ -28,6 +28,11 @@ const Navbar = () => {
                 <>
                     <li className='font-semibold'><Link to='/dashboard'>Dashboard</Link></li>
                     <li className='font-semibold'><button onClick={handleLogOut}>Sign Out</button></li>
+                    <li className='font-semibold'><Link to='/profile'><div className="avatar">
+  <div className="w-8 rounded-full ring ring-primary ring-offset-2">
+    <img src="https://placeimg.com/192/192/people" />
+  </div>
+</div></Link></li>
                 </>
                 :
                 <li className='font-semibold'><Link to='/login'>Login</Link></li>
