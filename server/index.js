@@ -185,16 +185,14 @@ async function run() {
             const services = await cursor.toArray();
             res.send(services);
         });
-        // app.get('/services', async (req, res) => {
-        //     const search = req.query.search
-        //     console.log(search);
-        //     const query = {
-        //         $text:{$search:search}
-        //     };
-        //     const cursors = usersCollection.find(query)
-        //     const aboutus = await cursors.toArray()
-        //     res.send(aboutus)
-        // })
+
+
+        app.get('/profile', async (req, res) => {
+            const query = {};
+            const cursors = usersCollection.find(query)
+            const profile = await cursors.toArray()
+            res.send(profile)
+        })
         // ---------------------------------------------------------------
 
         //All category
