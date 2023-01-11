@@ -127,7 +127,7 @@ async function run() {
                 package: req.body.package
             }
             const abc = await priviledgesCollection.findOne(query);
-            const title = abc? abc.title : '';
+            const title = abc ? abc.title : '';
             const def = [...title, ...req.body.title];
             console.log(def);
 
@@ -168,6 +168,33 @@ async function run() {
             res.send(aboutus)
         })
 
+
+        // Search 
+        app.get('/searchProfile', async (req, res) => {
+            const search = req.query.search
+            console.log(search)
+            let query = {
+                $text: { $search: search }
+            };
+            // if (search.length) {
+            //     query = {
+            //         $search: search, $caseSensitive: false
+            //     }
+            // }
+            const cursor = usersCollection.find(query);
+            const services = await cursor.toArray();
+            res.send(services);
+        });
+        // app.get('/services', async (req, res) => {
+        //     const search = req.query.search
+        //     console.log(search);
+        //     const query = {
+        //         $text:{$search:search}
+        //     };
+        //     const cursors = usersCollection.find(query)
+        //     const aboutus = await cursors.toArray()
+        //     res.send(aboutus)
+        // })
         // ---------------------------------------------------------------
 
         //All category
