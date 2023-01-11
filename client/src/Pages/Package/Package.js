@@ -16,6 +16,8 @@ const Package = () => {
         }
     })
 
+    
+
     const { data: priviledges = [] } = useQuery({
         queryKey: ['priviledges'],
         queryFn: async () => {
@@ -25,6 +27,8 @@ const Package = () => {
 
         }
     })
+
+    console.log(priviledges);
 
     if (isLoading) {
         return <Loading></Loading>

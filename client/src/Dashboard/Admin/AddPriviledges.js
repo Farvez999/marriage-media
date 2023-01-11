@@ -49,7 +49,7 @@ const AddPriviledges = () => {
         }
 
         fetch(`http://localhost:5000/addPriviledges`, {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
 
                 'content-type': 'application/json',

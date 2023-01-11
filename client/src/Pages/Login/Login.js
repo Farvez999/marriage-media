@@ -66,10 +66,10 @@ const Login = () => {
     }
 
     return (
-        <div className='h-[800px] flex justify-center '>
+        <div className=' flex justify-center '>
             {/* items-center */}
             <div className='w-96 p-7'>
-                <h2 className='text-xl text-center'>Login</h2>
+            <h1 className='text-3xl font-bold text-center my-5'>Login</h1>
                 <form onSubmit={handleSubmit(handleLogin)}>
 
                     <div className="form-control w-full max-w-xs">

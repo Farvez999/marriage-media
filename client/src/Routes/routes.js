@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom"
+import AboutUs from "../Dashboard/Admin/AboutUs"
 import AddPackage from "../Dashboard/Admin/AddPackage"
 import AddPriviledges from "../Dashboard/Admin/AddPriviledges"
 import AllSeller from "../Dashboard/User/AllSeller"
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addPriviledges',
                 element: <AdminRoute><AddPriviledges></AddPriviledges></AdminRoute>
+            },
+            {
+                path: '/dashboard/addAboutUs',
+                element: <AdminRoute><AboutUs></AboutUs></AdminRoute>
             },
             // {
             //     path: '/dashboard/allBuyer',

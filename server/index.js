@@ -39,6 +39,7 @@ async function run() {
         const usersCollection = client.db("marriage-media").collection("users");
         const packagesCollection = client.db("marriage-media").collection("package");
         const priviledgesCollection = client.db("marriage-media").collection("priviledges");
+        const aboutUsCollection = client.db("marriage-media").collection("about");
 
         const categoriesCollection = client.db("used-products-resale-portal").collection("categories");
         const productsCollection = client.db("used-products-resale-portal").collection("products");
@@ -114,34 +115,34 @@ async function run() {
             res.send(package)
         })
 
-        app.post('/addPriviledges', verifyJWT, async (req, res) => {
-            const package = req.body;
-            const result = await priviledgesCollection.insertOne(package);
-            res.send(result);
-        })
+        // app.post('/addPriviledges', verifyJWT, async (req, res) => {
+        //     const package = req.body;
+        //     const result = await priviledgesCollection.insertOne(package);
+        //     res.send(result);
+        // })
         //Addmin add Priviledges
-        app.post('/addPriviledges', verifyJWT, async (req, res) => {
+        app.patch('/addPriviledges', verifyJWT, async (req, res) => {
             console.log(req.body.package);
             const query = {
                 package: req.body.package
-
             }
             const abc = await priviledgesCollection.findOne(query);
-            console.log(abc.title);
-            const def = [...abc.title, req.body.title];
-            // create a filter for a movie to update
-            const filter = { package: query };
-            // this option instructs the method to create a document if no documents match the filter
+            const title = abc? abc.title : '';
+            const def = [...title, ...req.body.title];
+            console.log(def);
+
+            const filter = query;
             const options = { upsert: true };
-            // create a document that sets the plot of the movie
             const updateDoc = {
                 $set: {
-                    title: [...def, req.body.title,]
+                    title: def,
+                    email: req.body.email,
+                    author: req.body.author
                 },
             };
             const result = await priviledgesCollection.updateOne(filter, updateDoc, options);
             console.log(result);
-            // const result = await priviledgesCollection.insertOne(priviledges);
+            // // const result = await priviledgesCollection.insertOne(priviledges);
             res.send(result);
         })
 
@@ -153,6 +154,19 @@ async function run() {
             res.send(priviledge)
         })
 
+        // Add a About Us
+        app.post('/addAboutus', verifyJWT, async (req, res) => {
+            const about = req.body;
+            const result = await aboutUsCollection.insertOne(about);
+            res.send(result);
+        })
+
+        app.get('/aboutus', async (req, res) => {
+            const query = {};
+            const cursors = aboutUsCollection.find(query)
+            const aboutus = await cursors.toArray()
+            res.send(aboutus)
+        })
 
         // ---------------------------------------------------------------
 

@@ -39,12 +39,14 @@ const Signup = () => {
                 console.log(user)
 
                 const userInfo = {
-                    displayName: data.name
+                    displayName: data.cantidateFirstName  +  data.cantidateLastName
                 }
+                console.log(userInfo);
 
                 updateUser(userInfo)
                     .then(() => {
-                        saveUserDasboard(data.name, data.email)
+                        saveUserDasboard(data.cantidateFirstName, data.cantidateLastName, data.cantidateAge, data.cantidateHeight, data.cantidateGender, data.cantidateMaritalStatus, data.cantidateCountry, data.cantidateProfession, data.cantidateEducation, data.cantidateRelationCandidate, data.yourFirstName, data.yourLastName, data.phone, data.email, data.userType)
+
                     }).catch((error) => {
                         console.log(error)
                     });
@@ -56,8 +58,12 @@ const Signup = () => {
             });
     }
 
-    const saveUserDasboard = (name, email) => {
-        const user = { name, email };
+    
+    const saveUserDasboard = (cantidateFirstName, cantidateLastName, cantidateAge, cantidateHeight, cantidateGender, cantidateMaritalStatus, cantidateCountry, cantidateProfession, cantidateEducation, cantidateRelationCandidate, yourFirstName, yourLastName, phone, email) => {
+        const userType = 'free';
+        const user = { cantidateFirstName, cantidateLastName, cantidateAge, cantidateHeight, cantidateGender, cantidateMaritalStatus, cantidateCountry, cantidateProfession, cantidateEducation, cantidateRelationCandidate, yourFirstName, yourLastName, phone, email, userType };
+        // console.log(user);
+
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -72,18 +78,6 @@ const Signup = () => {
     }
 
 
-    // const handleGoogleLogin = () => {
-    //     const role = 'Buyer';
-    //     googleLogin(googleProvider)
-    //         .then((result) => {
-    //             const user = result.user;
-    //             saveUserDasboard(user.displayName, user.email, role)
-    //             console.log(user)
-    //             navigate(from, { replace: true });
-    //         }).catch((error) => {
-    //             console.log(error.message)
-    //         });
-    // }
     const handleGoogleLogin = () => {
 
         // setLoader(true)
@@ -107,7 +101,7 @@ const Signup = () => {
 
     return (
         <div>
-            <div className='h-full flex justify-center items-center'>
+            {/* <div className='h-full flex justify-center items-center'>
                 <div className='w-96 p-7'>
                     <h2 className='text-xl text-center'>Sign Up</h2>
                     <form onSubmit={handleSubmit(handleSignUp)}>
@@ -127,16 +121,6 @@ const Signup = () => {
                             <input {...register("email", { required: "Email Address is required" })} type="text" className="input input-bordered w-full max-w-xs" />
                             {errors.email && <p className='text-red-500' role="alert">{errors.email?.message}</p>}
                         </div>
-
-                        {/* <div className="form-control w-full max-w-xs mt-4">
-                        <select {...register("role")} className="select select-bordered w-full max-w-xs">
-
-                            <option>Seller</option>
-                            <option>Buyer</option>
-                        </select>
-
-                    </div> */}
-
 
 
 
@@ -165,32 +149,26 @@ const Signup = () => {
                         <button onClick={handleGoogleLogin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                     </form>
                 </div>
-            </div>
+            </div> */}
 
 
             <div >
                 <div className="card-body max-w-4xl mx-auto">
                     <h1 className='text-5xl font-bold text-center my-5'>Register</h1>
-                    <form  >
+                    <form onSubmit={handleSubmit(handleSignUp)} >
                         {/* Candidate Name */}
                         <div className="grid lg:grid-cols-2 md:grid-2 sm:grid-1 gap-3">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Candidate First Name</span>
                                 </label>
-                                <input type="text" placeholder="Candidate First Name" {...register("title", {
-                                    required: "Name is required"
-
-                                })} className="input input-bordered" />
+                                <input type="text" placeholder="Candidate First Name" {...register("cantidateFirstName", { required: "Candidate First Name is required" })} className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Candidate Last Name</span>
                                 </label>
-                                <input type="text" placeholder="Candidate Last Name" {...register("price", {
-                                    required: "Price is required"
-
-                                })} className="input input-bordered" />
+                                <input type="text" placeholder="Candidate Last Name" {...register("cantidateLastName", { required: "Candidate Last Name is required" })} className="input input-bordered" />
                             </div>
                         </div>
 
@@ -200,7 +178,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Candidate Age</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateAge", { required: "Candidate Age is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -215,7 +193,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Candidate Height</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateHeight", { required: "Candidate Height is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -240,7 +218,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Gender</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateGender", { required: "Candidate Gender is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -252,7 +230,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Marital Status</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateMaritalStatus", { required: "Candidate Marital Status is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -267,7 +245,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Country of Residence</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateCountry", { required: "Candidate Country is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -286,7 +264,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Profession</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateProfession", { required: "Candidate Profession is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -306,7 +284,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Education</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateEducation", { required: "Candidate Education is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -330,7 +308,7 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Your relationship to Candidate</span>
                                 </label>
-                                <select className="select w-full border-gray-400">
+                                <select className="select w-full border-gray-400" {...register("cantidateRelationCandidate", { required: "Candidate Your relationship to Candidate is required" })} >
                                     <option disabled selected>
                                         Select
                                     </option>
@@ -351,8 +329,8 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Your First Name</span>
                                 </label>
-                                <input type="text" placeholder="Your First Name" {...register("title", {
-                                    required: "Name is required"
+                                <input type="text" placeholder="Your First Name" {...register("yourFirstName", {
+                                    required: "Your First Name is required"
 
                                 })} className="input input-bordered" />
                             </div>
@@ -360,9 +338,8 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Your Last Name</span>
                                 </label>
-                                <input type="text" placeholder="Your Last Name" {...register("price", {
-                                    required: "Price is required"
-
+                                <input type="text" placeholder="Your Last Name" {...register("yourLastName", {
+                                    required: "Your Last Name is required"
                                 })} className="input input-bordered" />
                             </div>
 
@@ -374,8 +351,8 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="Email" {...register("title", {
-                                    required: "Name is required"
+                                <input type="text" placeholder="Email" {...register("email", {
+                                    required: "Email is required"
 
                                 })} className="input input-bordered" />
                             </div>
@@ -383,8 +360,8 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Phone Number</span>
                                 </label>
-                                <input type="text" placeholder="Phone Number" {...register("price", {
-                                    required: "Price is required"
+                                <input type="text" placeholder="Phone Number" {...register("phone", {
+                                    required: "Phone is required"
 
                                 })} className="input input-bordered" />
                             </div>
@@ -397,12 +374,12 @@ const Signup = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="Password" {...register("title", {
-                                    required: "Name is required"
+                                <input type="text" placeholder="Password" {...register("password", {
+                                    required: "Password is required"
 
                                 })} className="input input-bordered" />
                             </div>
-                            <div className="form-control">
+                            {/* <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Reconfirm Password</span>
                                 </label>
@@ -410,16 +387,19 @@ const Signup = () => {
                                     required: "Price is required"
 
                                 })} className="input input-bordered" />
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className='my-4'>
+
                             <input className='btn btn-accent w-full text-white' value="Sign Up" type="submit" />
                             {
                                 signUpError && <p className='text-red-500'>{signUpError}</p>
                             }
+
                             <p>Already have an Account <Link className='text-secondary' to="/login">Please Login</Link></p>
                             <div className="divider">OR</div>
+
                             <button onClick={handleGoogleLogin} className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
                         </div>
                     </form>
