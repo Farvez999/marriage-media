@@ -250,10 +250,7 @@ const Search = () => {
                                                     {profile.cantidateAge}
                                                 </p>
                                             </div>
-                                            <div className="flex gap-2 ">
-                                                <h4 className=" font-semibold">Ocuupation:</h4>
-                                                <p className="dark:text-gray-400 "></p>
-                                            </div>
+                                            
                                             <div className="flex gap-2">
                                                 <h4 className=" font-semibold">Profession:</h4>
                                                 <p className="dark:text-gray-400 ">Accountent</p>
