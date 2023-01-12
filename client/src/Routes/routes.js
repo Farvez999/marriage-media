@@ -14,6 +14,7 @@ import Signup from "../Pages/Login/Signup"
 import Package from "../Pages/Package/Package"
 import Profile from "../Pages/Profile/Profile"
 import Search from "../Pages/Search/Search"
+import SearchDetails from "../Pages/Search/SearchDetails"
 import AdminRoute from "./AdminRoutes"
 import PrivateRoutes from "./PrivateRoutes"
 
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <Profile/>,
+            },
+            {
+                path: '/details/:id',
+                element: <SearchDetails></SearchDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/searchProfile/${params.id}`)
             },
             {
                 path: '/login',

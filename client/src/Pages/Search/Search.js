@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const Search = () => {
 
@@ -24,204 +25,208 @@ const Search = () => {
 
     return (
         <div className='grid grid-cols-3'>
-            <div className="hero-content flex-col lg:flex-row-reverse col-span-1">
+            {/* <div className="hero-content flex-col lg:flex-row-reverse col-span-1">
                 <div className="card flex-shrink-0 w-full max-w-full shadow-2xl bg-base-100 bg-transparen75 bg-opacity-80">
-                    <div className="card-body">
-
-                        <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 p-6 rounded-md shadow-sm dark:bg-gray-900'>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Looking For</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Looking For
-                                    </option>
-                                    <option>Bride</option>
-                                    <option>Groom</option>
-
-                                </select>
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Marital Status</span>
-                                </label>
-                                <select ref={serachRef} className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>Doesn't Matter</option>
-                                    <option>Never Married</option>
-                                    <option>Divorced</option>
-                                    <option>Widowed</option>
-                                    <option>Separated</option>
-
-                                </select>
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Have children</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Doesn't Matter
-                                    </option>
-                                    <option>Doesn't Matter</option>
-                                    <option>No</option>
-                                    <option>Yes. Living together</option>
-                                    <option>Yes. Not living together</option>
-
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 p-6 rounded-md shadow-sm dark:bg-gray-900'>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Min Age</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Max Age</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Height</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>122 cm / 4'0"</option>
-                                    <option>123 cm / 4'0"</option>
-                                    <option>124 cm / 4'1"</option>
-                                    <option>125 cm / 4'1"</option>
-                                    <option>125 cm / 4'1"</option>
-                                    <option>126 cm / 4'1"</option>
-                                    <option>127 cm / 4'2"</option>
-                                    <option>128 cm / 4'2"</option>
-                                    <option>129 cm / 4'3"</option>
-                                    <option>130 cm / 4'3"</option>
-                                    <option>131 cm / 4'3"</option>
-                                    <option>5</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 p-6 rounded-md shadow-sm dark:bg-gray-900'>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Religion</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>Muslim</option>
-                                    <option>Hindu</option>
-                                    <option>Christian</option>
-                                    <option>Buddhist</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Country</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>Australia</option>
-                                    <option>USA</option>
-                                    <option>Bangladesh</option>
-                                    <option>India</option>
-                                    <option>Pakisthan</option>
-                                </select>
-                            </div>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Education Level</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>MBA</option>
-                                    <option>Bachelor</option>
-                                    <option>BBA</option>
-                                    <option>Diploma</option>
-                                    <option>HSC</option>
-                                    <option>SSC</option>
-                                    <option>Dakhil</option>
-                                    <option>Alim</option>
-                                    <option>Fajil</option>
-                                    <option>Kamil</option>
-                                </select>
-                            </div>
-
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Profession</span>
-                                </label>
-                                <select className="select w-full border-gray-400">
-                                    <option disabled selected>
-                                        Select
-                                    </option>
-                                    <option>Accountant</option>
-                                    <option>Advertising Professional</option>
-                                    <option>Advocate</option>
-                                    <option>Air Service</option>
-                                    <option>Architect</option>
-                                    <option>Auditor</option>
-                                    <option>Banker</option>
-                                    <option>Barrister</option>
-                                    <option>BCS Cadre</option>
-                                    <option>Beautician</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        
-
-                        <div className="form-control  px-6">
-                            <button onClick={handleSearch} className="btn btn-primary text-white bg-green-500">
-                                Search
-                            </button>
-                        </div>
-                    </div>
+                    
                 </div>
 
 
+            </div> */}
+
+            <div>
+                <div className="card-body">
+
+                    <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 p-6 rounded-md shadow-sm dark:bg-gray-900'>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Looking For</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Looking For
+                                </option>
+                                <option>Bride</option>
+                                <option>Groom</option>
+
+                            </select>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Marital Status</span>
+                            </label>
+                            <select ref={serachRef} className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>Doesn't Matter</option>
+                                <option>Never Married</option>
+                                <option>Divorced</option>
+                                <option>Widowed</option>
+                                <option>Separated</option>
+
+                            </select>
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Have children</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Doesn't Matter
+                                </option>
+                                <option>Doesn't Matter</option>
+                                <option>No</option>
+                                <option>Yes. Living together</option>
+                                <option>Yes. Not living together</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 p-6 rounded-md shadow-sm dark:bg-gray-900'>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Min Age</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Max Age</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Height</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>122 cm / 4'0"</option>
+                                <option>123 cm / 4'0"</option>
+                                <option>124 cm / 4'1"</option>
+                                <option>125 cm / 4'1"</option>
+                                <option>125 cm / 4'1"</option>
+                                <option>126 cm / 4'1"</option>
+                                <option>127 cm / 4'2"</option>
+                                <option>128 cm / 4'2"</option>
+                                <option>129 cm / 4'3"</option>
+                                <option>130 cm / 4'3"</option>
+                                <option>131 cm / 4'3"</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-2 p-6 rounded-md shadow-sm dark:bg-gray-900'>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Religion</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>Muslim</option>
+                                <option>Hindu</option>
+                                <option>Christian</option>
+                                <option>Buddhist</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Country</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>Australia</option>
+                                <option>USA</option>
+                                <option>Bangladesh</option>
+                                <option>India</option>
+                                <option>Pakisthan</option>
+                            </select>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Education Level</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>MBA</option>
+                                <option>Bachelor</option>
+                                <option>BBA</option>
+                                <option>Diploma</option>
+                                <option>HSC</option>
+                                <option>SSC</option>
+                                <option>Dakhil</option>
+                                <option>Alim</option>
+                                <option>Fajil</option>
+                                <option>Kamil</option>
+                            </select>
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Profession</span>
+                            </label>
+                            <select className="select w-full border-gray-400">
+                                <option disabled selected>
+                                    Select
+                                </option>
+                                <option>Accountant</option>
+                                <option>Advertising Professional</option>
+                                <option>Advocate</option>
+                                <option>Air Service</option>
+                                <option>Architect</option>
+                                <option>Auditor</option>
+                                <option>Banker</option>
+                                <option>Barrister</option>
+                                <option>BCS Cadre</option>
+                                <option>Beautician</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+                    <div className="form-control  px-6">
+                        <button onClick={handleSearch} className="btn btn-primary text-white bg-green-500">
+                            Search
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <div className='col-span-2 my-10'>
@@ -234,7 +239,7 @@ const Search = () => {
                                         <div className="img">
                                             <div className="avatar">
                                                 <div className="w-24 rounded">
-                                                    <img src="https://placeimg.com/192/192/people" />
+                                                    <img src={profile.img} />
                                                 </div>
                                             </div>
                                         </div>
@@ -332,6 +337,12 @@ const Search = () => {
 
                                         <div className="text-left">
                                             <p>Hello I am jhon.I am A Developer </p>
+                                        </div>
+
+                                        <div className="card-actions justify-end">
+                                            <Link to={`/details/${profile._id}`}>
+                                                <button className="btn btn-primary">Details</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
