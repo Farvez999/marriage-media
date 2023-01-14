@@ -11,7 +11,7 @@ function Profile() {
 
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/profile`)
+		fetch(`http://localhost:5000/users/${user?.email}`)
 			.then(res => res.json())
 			.then(data => setProfiles(data))
 	})
@@ -20,11 +20,12 @@ function Profile() {
 
 	return (
 		<div className="flex flex-col justify-center justify-items-center max-w-full p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-900 dark:text-gray-100">
-			<img src="https://source.unsplash.com/150x150/?portrait?3" alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
+			<img src={profiles.img} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
 			<div className="space-y-4 text-center divide-y divide-gray-700">
 				<div className="my-2 space-y-1">
-					<h2 className="text-xl font-semibold sm:text-2xl">{user?.displayName}</h2>
-					<p className="px-5 text-xs sm:text-base dark:text-gray-400">{user?.email}</p>
+					<h2 className="text-xl font-semibold sm:text-2xl">{profiles?.cantidateFirstName + ' ' + profiles?.cantidateLastName}</h2>
+					<p className="px-5 text-xs sm:text-base dark:text-gray-400">{profiles?.email}</p>
+					<p className="px-5 text-xs sm:text-base dark:text-gray-400">{profiles?.userType}</p>
 				</div>
 				<div className="flex justify-center pt-2 space-x-4 align-center">
 					<a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md dark:text-gray-100 hover:dark:text-violet-400">

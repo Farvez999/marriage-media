@@ -88,7 +88,13 @@ async function run() {
             const result = await usersCollection.insertOne(user);
             res.send(result);
         })
-
+        
+        app.get('/users/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email }
+            const users = await usersCollection.findOne(query)
+            res.send(users)
+        })
 
         // User get Admin permistion
         app.get('/users/admin/:email', async (req, res) => {
@@ -115,11 +121,43 @@ async function run() {
             res.send(package)
         })
 
-        // app.post('/addPriviledges', verifyJWT, async (req, res) => {
-        //     const package = req.body;
-        //     const result = await priviledgesCollection.insertOne(package);
-        //     res.send(result);
-        // })
+        //Admin Package get
+        app.get('/packages/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email }
+            const result = await packagesCollection.find(query).toArray()
+            res.send(result);
+        });
+
+        // Package delete
+        app.delete('/packages/:id', verifyJWT, async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const result = await packagesCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        //update Package
+        app.get('/pac/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const resultt = await packagesCollection.findOne(query)
+            res.send(resultt);
+        })
+        app.put('/packageUpdate/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) };
+            const details = req.body;
+            const option = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    description: details.description
+                }
+            }
+            const result = await packagesCollection.updateOne(query, updateDoc, option)
+            res.send(result);
+        })
+
         //Addmin add Priviledges
         app.patch('/addPriviledges', verifyJWT, async (req, res) => {
             console.log(req.body.package);
@@ -153,6 +191,31 @@ async function run() {
             const priviledge = await cursors.toArray()
             res.send(priviledge)
         })
+
+        //Buy now user update
+        app.get('/priviledges/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: ObjectId(id) }
+            const result = await priviledgesCollection.findOne(query)
+            console.log(result);
+            res.send(result)
+        })
+
+        app.patch('/userTypeUpdate/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email }
+            const user = await packagesCollection.findOne(query)
+            const details = req.body;
+            // console.log(details);
+            const option = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    userType: details.userType
+                }
+            }
+            const result = await usersCollection.updateOne(query, updateDoc, option)
+            res.send(result);
+        });
 
         // Add a About Us
         app.post('/addAboutus', verifyJWT, async (req, res) => {

@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const PriviledgesCard = ({ priviledge }) => {
-    console.log(priviledge.title);
+    // console.log(priviledge.title);
+
+    const [priviledgeData, setPriviledgeData] = useState('')
+    const { user } = useContext(AuthContext)
+    // console.log(user);
+    const handleBuyNow = (_id) => {
+
+        fetch(`http://localhost:5000/priviledges/${_id}`)
+            .then(res => res.json())
+            .then(data => {
+                setPriviledgeData(data)
+            })
+
+        console.log(priviledgeData.package);
+
+        fetch(`http://localhost:5000/userTypeUpdate/${user?.email}`,
+            {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userType: priviledgeData.package}),
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            toast.success(`${priviledgeData.package} Package is Buy Now`)
+    }
+
+    console.log(user?.email);
+
     return (
         <section className="py-10 dark:bg-gray-800 dark:text-gray-100">
             <div className="container px-2 mx-auto">
@@ -35,7 +66,7 @@ const PriviledgesCard = ({ priviledge }) => {
 
 
                         </ul>
-                        <button onClick={priviledge._id} type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 bg-white dark:text-gray-900">Buy Now</button>
+                        <button onClick={() => handleBuyNow(priviledge._id)} type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 bg-white dark:text-gray-900">Buy Now</button>
                     </div>
                     {/* <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                             <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-violet-400 dark:text-gray-900">

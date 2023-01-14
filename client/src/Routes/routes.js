@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom"
 import AboutUs from "../Dashboard/Admin/AboutUs"
 import AddPackage from "../Dashboard/Admin/AddPackage"
 import AddPriviledges from "../Dashboard/Admin/AddPriviledges"
+import MyPackage from "../Dashboard/Admin/MyPackage"
+import PackageUpdate from "../Dashboard/Admin/PackageUpdate"
 import AllSeller from "../Dashboard/User/AllSeller"
 import DashBoardLayout from "../Layout/DashBoardLayout"
 import Main from "../Layout/Main"
@@ -38,7 +40,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blog',
-                element: <Blog/>,
+                element: <Blog />,
             },
             {
                 path: '/contacts',
@@ -46,11 +48,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/about',
-                element: <About/>,
+                element: <About />,
             },
             {
                 path: '/profile',
-                element: <Profile/>,
+                element: <Profile />,
             },
             {
                 path: '/details/:id',
@@ -73,6 +75,8 @@ const router = createBrowserRouter([
             //             `https://used-products-resale-server-vert.vercel.app/categorie/${params.id}`
             //         ),
             // },
+
+            
         ],
     },
     {
@@ -104,6 +108,15 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addPackage',
                 element: <AdminRoute><AddPackage></AddPackage></AdminRoute>
+            },
+            {
+                path: '/dashboard/myPackage',
+                element: <AdminRoute><MyPackage></MyPackage></AdminRoute>
+            },
+            {
+                path: '/dashboard/packagesedit/:id',
+                element: <PackageUpdate></PackageUpdate>,
+                loader: ({ params }) => fetch(`http://localhost:5000/pac/${params.id}`),
             },
             {
                 path: '/dashboard/addPriviledges',
