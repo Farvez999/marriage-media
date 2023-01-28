@@ -123,7 +123,7 @@ const AddPriviledges = () => {
     return (
         <div>
             <div className="card-body">
-                <h1 className='text-5xl font-bold text-center my-5'>Add A Priviledges</h1>
+                <h1 className='text-3xl font-bold text-center my-5'>Add Priviledges</h1>
                 <form onSubmit={handleSubmit(onSubmit)} >
                     <div className="grid lg:grid-cols-2 md:grid-2 sm:grid-1 gap-3">
                         <div className="form-control">

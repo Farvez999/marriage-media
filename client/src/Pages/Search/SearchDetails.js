@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
 
 const SearchDetails = () => {
   const {
@@ -188,7 +189,7 @@ const SearchDetails = () => {
               <dt className="text-sm font-medium text-gray-500">phone</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
                 {phone}
-                {userType === 'Sliver' ? phone : 'Private' && userType === 'Gold' ? phone : 'Private'}
+                {/* {userType === 'Sliver' ? phone : 'Private' && userType === 'Gold' ? phone : 'Private'} */}
               </dd>
             </div>
 
@@ -201,6 +202,12 @@ const SearchDetails = () => {
           </dl>
         </div>
       </div>
+
+     
+    
+
+
+    
     </>
   );
 };

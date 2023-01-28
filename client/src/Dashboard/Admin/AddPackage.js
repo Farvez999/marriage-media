@@ -87,7 +87,7 @@ const AddPackage = () => {
         <div>
             <div>
                 <div className="card-body">
-                    <h1 className='text-5xl font-bold text-center my-5'>Add A Package</h1>
+                    <h1 className='text-3xl font-bold text-center my-5'>Create Packages</h1>
                     <form onSubmit={handleSubmit(onSubmit)} >
                         <div className="grid lg:grid-cols-2 md:grid-2 sm:grid-1 gap-3">
                             <div className="form-control">
@@ -112,11 +112,11 @@ const AddPackage = () => {
                         </div>
 
                         <div className="form-control mt-5">
-                            <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700">Select Package Icon</label>
+                            <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700 text-left">Select Package Icon</label>
                             <input className="form-control
                             block
                             w-full
-                            px-3
+                            px-2
                             py-1.5
                             text-base
                             font-normal
@@ -147,6 +147,7 @@ const AddPackage = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className={isloader ? 'btn btn-neutral loading' : 'btn btn-neutral'}>
                                 {isloader ? 'Loading' : 'Add Package'}
+                                
                             </button>
                         </div>
                     </form>

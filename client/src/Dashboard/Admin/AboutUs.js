@@ -70,11 +70,11 @@ const AboutUs = () => {
         <div>
             <div>
                 <div className="card-body">
-                    <h1 className='text-5xl font-bold text-center my-5'>Add A About Us</h1>
+                    <h1 className='text-3xl font-bold text-center my-5'>Update Information </h1>
                     <form onSubmit={handleSubmit(onSubmit)} >
                         <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Vision</span>
+                            <label className="label ">
+                                <span className="label-text ">Vision</span>
                             </label>
                             <textarea className="textarea textarea-bordered h-24" {...register("vision")} placeholder="Write Vision..."></textarea>
                         </div>
@@ -97,7 +97,7 @@ const AboutUs = () => {
 
                         <div className="form-control mt-6">
                             <button type='submit' className={isloader ? 'btn btn-neutral loading' : 'btn btn-neutral'}>
-                                {isloader ? 'Loading' : 'Add Package'}
+                                {isloader ? 'Loading' : 'Update'}
                             </button>
                         </div>
                     </form>
