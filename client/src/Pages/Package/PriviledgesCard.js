@@ -3,7 +3,8 @@ import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const PriviledgesCard = ({ priviledge }) => {
-    // console.log(priviledge.title);
+    console.log(priviledge.title
+    );
 
     const [priviledgeData, setPriviledgeData] = useState('')
     const { user } = useContext(AuthContext)
@@ -24,11 +25,11 @@ const PriviledgesCard = ({ priviledge }) => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ userType: priviledgeData.package}),
+                body: JSON.stringify({ userType: priviledgeData.package }),
             })
             .then(res => res.json())
             .then(data => console.log(data))
-            toast.success(`${priviledgeData.package} Package is Buy Now`)
+        toast.success(`${priviledgeData.package} Package is Buy Now`)
     }
 
     console.log(user?.email);
@@ -47,17 +48,18 @@ const PriviledgesCard = ({ priviledge }) => {
                     <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-900 bg-lime-400">
                         <div className="space-y-2">
                             <h4 className="text-2xl font-bold">Beginner</h4>
-                            <span className="text-6xl font-bold">{priviledge.package}</span>
+                            <span className="text-6xl font-bold">{priviledge?.package}</span>
                         </div>
                         <p className="mt-3 leading-relaxed dark:text-gray-400">Etiam ac convallis enim, eget euismod dolor.</p>
                         <ul className="flex-1 mb-6 dark:text-gray-400">
                             {
-                                priviledge.title.map((t, i) =>
+                                priviledge?.title?.map((t, i) =>
                                     <li key={i} className="flex mb-2 space-x-2">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="flex-shrink-0 w-6 h-6 dark:text-violet-400">
                                             <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path>
                                         </svg>
-                                        <span>{t}</span>
+                                        <p><span>{t?.priviledgesName}</span><span>{t?.priviledgesOption === 'Yes' ? '' : ' ' + t?.priviledgesOption + ' ' + 'Times'}</span></p>
+
 
                                     </li>
                                 )

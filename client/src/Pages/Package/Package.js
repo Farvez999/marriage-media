@@ -16,7 +16,8 @@ const Package = () => {
         }
     })
 
-    
+    console.log(packages);
+
 
     const { data: priviledges = [] } = useQuery({
         queryKey: ['priviledges'],
@@ -49,13 +50,13 @@ const Package = () => {
             </div>
 
             <div className="max-w-2xl mx-auto mb-16 text-center">
-                    <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
-                    <h2 className="text-4xl font-bold lg:text-5xl">Choose your best plan</h2>
-                </div>
+                <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
+                <h2 className="text-4xl font-bold lg:text-5xl">Choose your best plan</h2>
+            </div>
             <div className='grid mt-4 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
-                    priviledges.map(priviledge => <PriviledgesCard
-                        key={priviledge._id}
+                    priviledges?.map(priviledge => <PriviledgesCard
+                        key={priviledge?._id}
                         priviledge={priviledge}
                     ></PriviledgesCard>)
                 }
