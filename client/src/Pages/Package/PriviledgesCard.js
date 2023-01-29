@@ -57,7 +57,7 @@ const PriviledgesCard = ({ priviledge }) => {
     console.log(user?.email);
 
     return (
-        <section className="py-10 dark:bg-gray-800 dark:text-gray-100">
+        <section className="py-5 dark:bg-gray-800 dark:text-gray-100 ml-20">
             <div className="container px-2 mx-auto">
                 {/* <div className="max-w-2xl mx-auto mb-16 text-center">
                     <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
@@ -67,13 +67,13 @@ const PriviledgesCard = ({ priviledge }) => {
                     {/* <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                         
                     </div> */}
-                    <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-900 bg-lime-400">
-                        <div className="space-y-2">
-                            <h4 className="text-2xl font-bold">Beginner</h4>
-                            <span className="text-6xl font-bold">{priviledge?.package}</span>
+                    <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-900 bg-lime-500">
+                        <div className="space-y-2 text-white">
+                            
+                            <span className="text-4xl font-bold">{priviledge?.package}</span>
                         </div>
-                        <p className="mt-3 leading-relaxed dark:text-gray-400">Etiam ac convallis enim, eget euismod dolor.</p>
-                        <ul className="flex-1 mb-6 dark:text-gray-400">
+                        {/* <p className="mt-3 leading-relaxed dark:text-gray-400">Etiam ac convallis enim, eget euismod dolor.</p> */}
+                        <ul className="flex-1 mb-6 dark:text-gray-400 text-white">
                             {
                                 priviledge?.title?.map((t, i) =>
                                     <li key={i} className="flex mb-2 space-x-2">
