@@ -107,7 +107,6 @@ const AddPackage = () => {
                                     required: "Price is required"
 
                                 })} className="input input-bordered" />
-                                
                             </div>
 
                         </div>
