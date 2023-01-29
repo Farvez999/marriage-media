@@ -74,49 +74,7 @@ const AddPriviledges = () => {
             .catch(error => { toast.error(error.message); setIsloader(false) })
 
 
-        // const image = data.img[0];
-        // const formData = new FormData();
-        // formData.append('image', image);
 
-        // fetch(`https://api.imgbb.com/1/upload?key=1faa49df03df506c6697717902b0f372`, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        //     .then(res => res.json())
-        //     .then(imgData => {
-        //         if (imgData.success) {
-
-        //             // const addPackage = {
-        //             //     img: imgData.data.url,
-        //             //     price: data.price,
-        //             //     title: data.title,
-        //             //     email: author.email,
-        //             //     description: data.description,
-        //             //     author: author,
-        //             // }
-
-        //             // fetch(`http://localhost:5000/addPackage`, {
-        //             //     method: 'POST',
-        //             //     headers: {
-
-        //             //         'content-type': 'application/json',
-        //             //         authorization: `bearer ${localStorage.getItem('accessToken')}`
-
-        //             //     },
-        //             //     body: JSON.stringify(addPackage)
-        //             // })
-        //             //     .then(res => res.json())
-        //             //     .then(data => {
-        //             //         if (data.acknowledged) {
-        //             //             console.log(data);
-        //             //             setIsloader(false)
-        //             //             toast.success('Your Package added successfully')
-        //             //             navigate('/dashboard/sellerProducts')
-        //             //         }
-        //             //     })
-        //             //     .catch(error => { toast.error(error.message); setIsloader(false) })
-        //         }
-        //     });
 
 
     }
@@ -130,15 +88,7 @@ const AddPriviledges = () => {
                 <h1 className='text-3xl font-bold text-center my-5'>Add Priviledges</h1>
                 <form onSubmit={handleSubmit(onSubmit)} >
                     <div className="grid lg:grid-cols-2 md:grid-2 sm:grid-1 gap-3">
-                        {/* <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Priviledges Name</span>
-                            </label>
-                            <input type="text" placeholder="Priviledges Name" {...register("title", {
-                                required: "Name is required"
 
-                            })} className="input input-bordered" />
-                        </div> */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Priviledges Name</span>
@@ -179,31 +129,7 @@ const AddPriviledges = () => {
 
                     </div>
 
-                    {/* <div className="form-control mt-5">
-                        <label htmlFor="formFile" className="form-label inline-block mb-2 text-gray-700">Select Package Icon</label>
-                        <input className="form-control
-                        block
-                        w-full
-                        px-3
-                        py-1.5
-                        text-base
-                        font-normal
-                        text-gray-700
-                        bg-white bg-clip-padding
-                        border border-solid border-gray-300
-                        rounded
-                        transition
-                        ease-in-out
-                        m-0
-                        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
 
-                            type="file"
-                            {...register("img", {
-                                required: "img is required",
-                            })}
-                            id="formFile" />
-
-                    </div> */}
 
                     <div className="form-control">
                         <label className="label">

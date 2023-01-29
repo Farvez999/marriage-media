@@ -47,6 +47,7 @@ const AddPackage = () => {
                     const addPackage = {
                         img: imgData.data.url,
                         price: data.price,
+                        userLimit: data.userLimit,
                         title: data.title,
                         email: author.email,
                         description: data.description,
@@ -107,6 +108,17 @@ const AddPackage = () => {
                                     required: "Price is required"
 
                                 })} className="input input-bordered" />
+                                
+                            </div>
+
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">User Limit</span>
+                                </label>
+                                <input type="text" placeholder="User Limit" {...register("userLimit", {
+                                    required: "User Limit is required"
+
+                                })} className="input input-bordered" />
                             </div>
 
                         </div>
@@ -147,13 +159,13 @@ const AddPackage = () => {
                         <div className="form-control mt-6">
                             <button type='submit' className={isloader ? 'btn btn-neutral loading' : 'btn btn-neutral'}>
                                 {isloader ? 'Loading' : 'Add Package'}
-                                
+
                             </button>
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

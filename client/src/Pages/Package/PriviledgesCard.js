@@ -1,35 +1,57 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const PriviledgesCard = ({ priviledge }) => {
-    console.log(priviledge.title
-    );
+    // console.log(priviledge.title
+    // );
 
     const [priviledgeData, setPriviledgeData] = useState('')
     const { user } = useContext(AuthContext)
     // console.log(user);
-    const handleBuyNow = (_id) => {
 
-        fetch(`http://localhost:5000/priviledges/${_id}`)
+
+
+
+    const handleBuyNow = (pkg) => {
+
+        // console.log(pkg);
+
+        fetch(`http://localhost:5000/pkg/${pkg}`)
             .then(res => res.json())
             .then(data => {
-                setPriviledgeData(data)
+                console.log(data.userLimit)
+
+                fetch(`http://localhost:5000/userTypeUpdate/${user?.email}`,
+                    {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ userType: data.title, userLimit: data.userLimit }),
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                toast.success(`${data.title} Package is Buy Now`)
             })
 
-        console.log(priviledgeData.package);
+        // fetch(`http://localhost:5000/priviledges/${_id}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setPriviledgeData(data)
+        //     })
 
-        fetch(`http://localhost:5000/userTypeUpdate/${user?.email}`,
-            {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userType: priviledgeData.package }),
-            })
-            .then(res => res.json())
-            .then(data => console.log(data))
-        toast.success(`${priviledgeData.package} Package is Buy Now`)
+        // console.log(priviledgeData.package);
+
+        // let userLimit = 0;
+        // if (priviledgeData.package === 'Sliver') {
+        //     userLimit = 3;
+        // }
+        // else if (priviledgeData.package === 'Gold') {
+        //     userLimit = 5;
+        // }
+
+
     }
 
     console.log(user?.email);
@@ -68,7 +90,7 @@ const PriviledgesCard = ({ priviledge }) => {
 
 
                         </ul>
-                        <button onClick={() => handleBuyNow(priviledge._id)} type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 bg-white dark:text-gray-900">Buy Now</button>
+                        <button onClick={() => handleBuyNow(priviledge.package)} type="button" className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded dark:bg-violet-400 bg-white dark:text-gray-900">Buy Now</button>
                     </div>
                     {/* <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                             <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-violet-400 dark:text-gray-900">

@@ -1,9 +1,13 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Search = () => {
   const serachRef = useRef();
   const [searchProfile, setsearchProfile] = useState([]);
+  const { user } = useContext(AuthContext)
+  const [profiles, setProfiles] = useState([]);;
+  const [userLimit, setUserLimit] = useState(0);
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -17,18 +21,39 @@ const Search = () => {
     console.log(search);
   };
 
-  console.log(searchProfile);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.userLimit)
+        setUserLimit(data.userLimit)
+      });
+  })
+
+
+  const detailsBtn = (_id) => {
+    const newUserLimit = userLimit - 1
+    console.log(newUserLimit);
+    fetch(`http://localhost:5000/userLimitUpdate/${user?.email}`,
+      {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ userLimit: newUserLimit }),
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
+  }
+
+  // console.log(searchProfile);
 
   return (
     <>
       <div className="grid grid-cols-3">
-        {/* <div className="hero-content flex-col lg:flex-row-reverse col-span-1">
-                <div className="card flex-shrink-0 w-full max-w-full shadow-2xl bg-base-100 bg-transparen75 bg-opacity-80">
-                    
-                </div>
-
-
-            </div> */}
 
         <div>
           <div className="card-body">
@@ -364,10 +389,15 @@ const Search = () => {
                     </div>
 
                     <div className="card-actions justify-end">
-                      <Link to={`/details/${profile._id}`}>
-                        <button className="btn btn-primary">Details</button>
-                      </Link>
+                      {
+                        userLimit === 0 ? <p className="text-red-600">User Limit is Finsh.. Please Buy Now new Package</p> : <Link to={`/details/${profile._id}`}>
+
+                          <button onClick={() => detailsBtn(profile._id)} className="btn btn-primary">Details</button>
+                        </Link>
+                      }
+
                     </div>
+
                   </div>
                 </div>
               </section>

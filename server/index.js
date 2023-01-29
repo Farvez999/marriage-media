@@ -88,7 +88,7 @@ async function run() {
             const result = await usersCollection.insertOne(user);
             res.send(result);
         })
-        
+
         app.get('/users/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email }
@@ -103,6 +103,21 @@ async function run() {
             const user = await usersCollection.findOne(query);
             res.send({ isAdmin: user?.role === 'admin' });
         })
+
+        app.patch('/userLimitUpdate/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email: email }
+            const details = req.body;
+            // console.log(details);
+            const option = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    userLimit: details.userLimit
+                }
+            }
+            const result = await usersCollection.updateOne(query, updateDoc, option)
+            res.send(result);
+        });
 
 
         //Addmin add Package
@@ -119,6 +134,15 @@ async function run() {
             const cursors = packagesCollection.find(query)
             const package = await cursors.toArray()
             res.send(package)
+        })
+
+
+        app.get('/pkg/:pkg', async (req, res) => {
+            const pkg = req.params.pkg;
+            console.log(pkg);
+            const query = { title: pkg };
+            const result = await packagesCollection.findOne(query)
+            res.send(result);
         })
 
         //Admin Package get
@@ -210,7 +234,8 @@ async function run() {
             const option = { upsert: true };
             const updateDoc = {
                 $set: {
-                    userType: details.userType
+                    userType: details.userType,
+                    userLimit: details.userLimit
                 }
             }
             const result = await usersCollection.updateOne(query, updateDoc, option)

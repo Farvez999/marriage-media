@@ -84,29 +84,6 @@ const SearchDetails = () => {
         </div>
       </div>
 
-      {/* ........... */}
-      {/* Introduction */}
-
-      {/* <div className="overflow-hidden bg-white shadow sm:rounded-lg border ml-10 mr-10">
-        <div className="px-4 py-5 sm:px-6 text-left">
-          <h3 className="text-lg font-medium leading-6 text-gray-900">
-            Introduction
-          </h3>
-        </div>
-
-        <div className="border-t border-gray-200">
-          <dl>
-            <div className=" px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 text-left">
-             
-              <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                Student of BSS in Sociology{" "}
-              </p>
-            </div>
-          </dl>
-        </div>
-      </div> */}
-      {/* personal information */}
-
       <div className="overflow-hidden bg-white shadow sm:rounded-lg text-left border ml-10 mr-10 mt-10 drop-shadow-2xl mb-10  ">
         <div className="px-4 py5 sm:px-6">
           <h3 className="text-lg font-medium leading-6 text-gray-900">
