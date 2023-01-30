@@ -57,7 +57,7 @@ const PriviledgesCard = ({ priviledge }) => {
     console.log(user?.email);
 
     return (
-        <section className="py-5 dark:bg-gray-800 dark:text-gray-100 ml-20">
+        <section className="py-5  dark:bg-gray-800 dark:text-gray-100 ml-20">
             <div className="container px-2 mx-auto">
                 {/* <div className="max-w-2xl mx-auto mb-16 text-center">
                     <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
@@ -67,7 +67,7 @@ const PriviledgesCard = ({ priviledge }) => {
                     {/* <div className="flex w-full mb-8 sm:px-4 md:w-1/2 lg:w-1/3 lg:mb-0">
                         
                     </div> */}
-                    <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-900 bg-lime-500">
+                    <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-900 bg-lime-500 gap-5">
                         <div className="space-y-2 text-white">
                             
                             <span className="text-4xl font-bold">{priviledge?.package}</span>
