@@ -617,5 +617,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`Marriage Media running on Server ${port}`);
+    console.log(`Marriage Media website running on Server successfully ${port}`);
 })
