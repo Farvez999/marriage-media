@@ -11,7 +11,7 @@ const Search = () => {
   const [search, setSearch] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/searchProfile?search=${search}`)
+    fetch(`https://server-teal-seven.vercel.app/searchProfile?search=${search}`)
       .then((res) => res.json())
       .then((data) => setsearchProfile(data));
   }, [search]);
@@ -23,7 +23,7 @@ const Search = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users/${user?.email}`)
+    fetch(`https://server-teal-seven.vercel.app/users/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         console.log(data.userLimit)
@@ -35,7 +35,7 @@ const Search = () => {
   const detailsBtn = (_id) => {
     const newUserLimit = userLimit - 1
     console.log(newUserLimit);
-    fetch(`http://localhost:5000/userLimitUpdate/${user?.email}`,
+    fetch(`https://server-teal-seven.vercel.app/userLimitUpdate/${user?.email}`,
       {
         method: 'PATCH',
         headers: {

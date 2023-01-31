@@ -39,7 +39,7 @@ const AboutUs = () => {
             author: author,
         }
 
-        fetch(`http://localhost:5000/addAboutus`, {
+        fetch(`https://server-teal-seven.vercel.app/addAboutus`, {
             method: 'POST',
             headers: {
 

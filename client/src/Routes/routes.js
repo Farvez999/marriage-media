@@ -57,7 +57,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <SearchDetails></SearchDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/searchProfile/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-teal-seven.vercel.app/searchProfile/${params.id}`)
             },
             {
                 path: '/login',
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
             //         ),
             // },
 
-            
+
         ],
     },
     {
@@ -116,7 +116,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/packagesedit/:id',
                 element: <PackageUpdate></PackageUpdate>,
-                loader: ({ params }) => fetch(`http://localhost:5000/pac/${params.id}`),
+                loader: ({ params }) => fetch(`https://server-teal-seven.vercel.app/pac/${params.id}`),
             },
             {
                 path: '/dashboard/addPriviledges',

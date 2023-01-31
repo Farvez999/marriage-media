@@ -19,7 +19,7 @@ const PackageUpdate = () => {
         }
 
 
-        fetch(`http://localhost:5000/packageUpdate/${data._id}`, {
+        fetch(`https://server-teal-seven.vercel.app/packageUpdate/${data._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

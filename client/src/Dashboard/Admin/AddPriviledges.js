@@ -20,7 +20,7 @@ const AddPriviledges = () => {
     const { data: packages = [], isLoading } = useQuery({
         queryKey: ['packages'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/packages`)
+            const res = await fetch(`https://server-teal-seven.vercel.app/packages`)
             const data = await res.json()
             return data
 
@@ -29,7 +29,7 @@ const AddPriviledges = () => {
 
     useEffect(() => {
         setLoader(true)
-        fetch(`http://localhost:5000/users/${email}`)
+        fetch(`https://server-teal-seven.vercel.app/users/${email}`)
             .then(res => res.json())
             .then(data => { return (setAuthor(data), setLoader(false)) })
     }, [email])
@@ -52,7 +52,7 @@ const AddPriviledges = () => {
             author: author,
         }
 
-        fetch(`http://localhost:5000/addPriviledges`, {
+        fetch(`https://server-teal-seven.vercel.app/addPriviledges`, {
             method: 'PATCH',
             headers: {
 

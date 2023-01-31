@@ -54,7 +54,7 @@ const AddPackage = () => {
                         author: author,
                     }
 
-                    fetch(`http://localhost:5000/addPackage`, {
+                    fetch(`https://server-teal-seven.vercel.app/addPackage`, {
                         method: 'POST',
                         headers: {
 
@@ -108,7 +108,7 @@ const AddPackage = () => {
                                     required: "Price is required"
 
                                 })} className="input input-bordered" />
-                                
+
                             </div>
 
                             <div className="form-control">

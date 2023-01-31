@@ -23,7 +23,7 @@ const MyPackage = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/packages/${user.email}`,
+          `https://server-teal-seven.vercel.app/packages/${user.email}`,
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -32,12 +32,12 @@ const MyPackage = () => {
         );
         const data = await res.json();
         return data;
-      } catch (error) {}
+      } catch (error) { }
     },
   });
 
   const handleDelete = (pac) => {
-    fetch(`http://localhost:5000/packages/${pac._id}`, {
+    fetch(`https://server-teal-seven.vercel.app/packages/${pac._id}`, {
       method: "DELETE",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -53,7 +53,7 @@ const MyPackage = () => {
   };
 
   const handleStatusUpdate = (pac) => {
-    fetch(`http://localhost:5000/packages/${pac._id}`, {
+    fetch(`https://server-teal-seven.vercel.app/packages/${pac._id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -110,9 +110,9 @@ const MyPackage = () => {
                   <Link
                     to={`/dashboard/packagesedit/${pac._id}`}
                     className="inline-flex items-center py-2 px-4 text-sm font-medium text-center text-gray-900 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-                        >
-                            <EditIcon/>
-                   
+                  >
+                    <EditIcon />
+
                   </Link>
                 </td>
                 <td>

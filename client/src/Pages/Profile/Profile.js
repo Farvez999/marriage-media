@@ -11,7 +11,7 @@ function Profile() {
 
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/users/${user?.email}`)
+		fetch(`https://server-teal-seven.vercel.app/users/${user?.email}`)
 			.then(res => res.json())
 			.then(data => setProfiles(data))
 	})
@@ -53,60 +53,60 @@ function Profile() {
 		// </div>
 
 		<div className=" col-span-2 text-left">
-        <div className="col-span-2 my-4 ml-10 mr-10 border rounded-md shadow-2xl">
-          <section className="dark:bg-gray-800 dark:text-gray-100">
-            <div className="container max-w-5xl px-2 py-12">
-              <div className="grid grid-cols-3">
+			<div className="col-span-2 my-4 ml-10 mr-10 border rounded-md shadow-2xl">
+				<section className="dark:bg-gray-800 dark:text-gray-100">
+					<div className="container max-w-5xl px-2 py-12">
+						<div className="grid grid-cols-3">
 
-                <div className="img gap-10 ml-20">
-                  <div className="avatar">
-                    <div className="flex-shrink-0 lg:w-60 mb-6 lg:h-72  sm:h-32 sm:w-32 sm:mb-0  rounded-md">
+							<div className="img gap-10 ml-20">
+								<div className="avatar">
+									<div className="flex-shrink-0 lg:w-60 mb-6 lg:h-72  sm:h-32 sm:w-32 sm:mb-0  rounded-md">
 										<img src={profiles?.img} alt="" />
-										
-                    </div>
-                  </div>
-                </div>
 
-                <div className="ml-10">
-                  <div className="flex gap-2 ">
-				  <h2 className="text-xl font-semibold sm:text-2xl">Name: {profiles?.cantidateFirstName + ' ' + profiles?.cantidateLastName}</h2>
-                  </div>
-                  <div className="flex gap-2">
-                    <h4 className=" font-semibold">Profession:</h4>
-                    <p className="dark:text-gray-400 ">{profiles?.cantidateProfession}</p>
+									</div>
 								</div>
-								<div className="flex gap-2 ">
-                    <h4 className=" font-semibold">User Type:</h4>
-                    <p className="dark:text-gray-400 ">{profiles?.userType}</p>
-                  </div>
-                  <div className="flex gap-2 ">
-                    <h4 className=" font-semibold">Age:</h4>
-                    <p className="dark:text-gray-400 ">{profiles?.cantidateAge}</p>
-                  </div>
-                  <div className="flex gap-2 ">
-                    <h4 className=" font-semibold">Email:</h4>
-                    <p className="dark:text-gray-400 ">{profiles?.email}</p>
-								</div>
-								<div className="flex gap-2 ">
-                    <h4 className=" font-semibold">Phone:</h4>
-                    <p className="dark:text-gray-400 ">{profiles?.phone}</p>
-                  </div>
-                  <div className="flex gap-2 ">
-                    <h4 className=" font-semibold">Height:</h4>
-                    <p className="dark:text-gray-400 ">{profiles?.cantidateHeight}</p>
-								</div>
-								
-						
 							</div>
-						
-							
-							
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-		
+
+							<div className="ml-10">
+								<div className="flex gap-2 ">
+									<h2 className="text-xl font-semibold sm:text-2xl">Name: {profiles?.cantidateFirstName + ' ' + profiles?.cantidateLastName}</h2>
+								</div>
+								<div className="flex gap-2">
+									<h4 className=" font-semibold">Profession:</h4>
+									<p className="dark:text-gray-400 ">{profiles?.cantidateProfession}</p>
+								</div>
+								<div className="flex gap-2 ">
+									<h4 className=" font-semibold">User Type:</h4>
+									<p className="dark:text-gray-400 ">{profiles?.userType}</p>
+								</div>
+								<div className="flex gap-2 ">
+									<h4 className=" font-semibold">Age:</h4>
+									<p className="dark:text-gray-400 ">{profiles?.cantidateAge}</p>
+								</div>
+								<div className="flex gap-2 ">
+									<h4 className=" font-semibold">Email:</h4>
+									<p className="dark:text-gray-400 ">{profiles?.email}</p>
+								</div>
+								<div className="flex gap-2 ">
+									<h4 className=" font-semibold">Phone:</h4>
+									<p className="dark:text-gray-400 ">{profiles?.phone}</p>
+								</div>
+								<div className="flex gap-2 ">
+									<h4 className=" font-semibold">Height:</h4>
+									<p className="dark:text-gray-400 ">{profiles?.cantidateHeight}</p>
+								</div>
+
+
+							</div>
+
+
+
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+
 
 	)
 }

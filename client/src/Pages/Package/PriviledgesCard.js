@@ -17,12 +17,12 @@ const PriviledgesCard = ({ priviledge }) => {
 
         // console.log(pkg);
 
-        fetch(`http://localhost:5000/pkg/${pkg}`)
+        fetch(`https://server-teal-seven.vercel.app/pkg/${pkg}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data.userLimit)
 
-                fetch(`http://localhost:5000/userTypeUpdate/${user?.email}`,
+                fetch(`https://server-teal-seven.vercel.app/userTypeUpdate/${user?.email}`,
                     {
                         method: 'PATCH',
                         headers: {
@@ -35,7 +35,7 @@ const PriviledgesCard = ({ priviledge }) => {
                 toast.success(`${data.title} Package is Buy Now`)
             })
 
-        // fetch(`http://localhost:5000/priviledges/${_id}`)
+        // fetch(`https://server-teal-seven.vercel.app/priviledges/${_id}`)
         //     .then(res => res.json())
         //     .then(data => {
         //         setPriviledgeData(data)
@@ -69,7 +69,7 @@ const PriviledgesCard = ({ priviledge }) => {
                     </div> */}
                     <div className="flex flex-col p-6 space-y-6 rounded shadow sm:p-8 dark:bg-gray-900 bg-lime-500 gap-5">
                         <div className="space-y-2 text-white">
-                            
+
                             <span className="text-4xl font-bold">{priviledge?.package}</span>
                         </div>
                         {/* <p className="mt-3 leading-relaxed dark:text-gray-400">Etiam ac convallis enim, eget euismod dolor.</p> */}

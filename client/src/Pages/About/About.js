@@ -6,7 +6,7 @@ function About() {
   const { data: aboutus = [], isLoading } = useQuery({
     queryKey: ['aboutus'],
     queryFn: async () => {
-      const res = await fetch(`http://localhost:5000/aboutus`)
+      const res = await fetch(`https://server-teal-seven.vercel.app/aboutus`)
       const data = await res.json()
       return data
 
@@ -112,7 +112,7 @@ function About() {
                   </h5>
                   <div className="relative pr-8">
                     <p className="text-base text-gray-700 md:text-lg">
-                    {about.about}
+                      {about.about}
                     </p>
                   </div>
                 </div>

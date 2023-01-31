@@ -23,7 +23,7 @@ const SearchDetails = () => {
     img,
     userType
   } = useLoaderData();
-  
+
   const { user } = useContext(AuthContext);
 
   console.log(userType);
@@ -31,12 +31,12 @@ const SearchDetails = () => {
   const [profiles, setProfiles] = useState([]);;
 
   useEffect(() => {
-		fetch(`http://localhost:5000/users/${user?.email}`)
-			.then(res => res.json())
-			.then(data => setProfiles(data))
-	})
+    fetch(`https://server-teal-seven.vercel.app/users/${user?.email}`)
+      .then(res => res.json())
+      .then(data => setProfiles(data))
+  })
 
-	console.log(profiles.userType);
+  console.log(profiles.userType);
 
   return (
     <>
@@ -180,11 +180,11 @@ const SearchDetails = () => {
         </div>
       </div>
 
-     
-    
 
 
-    
+
+
+
     </>
   );
 };

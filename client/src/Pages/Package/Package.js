@@ -9,7 +9,7 @@ const Package = () => {
     const { data: packages = [], isLoading } = useQuery({
         queryKey: ['packages'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/packages`)
+            const res = await fetch(`https://server-teal-seven.vercel.app/packages`)
             const data = await res.json()
             return data
 
@@ -22,7 +22,7 @@ const Package = () => {
     const { data: priviledges = [] } = useQuery({
         queryKey: ['priviledges'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/priviledges`)
+            const res = await fetch(`https://server-teal-seven.vercel.app/priviledges`)
             const data = await res.json()
             return data
 
@@ -51,7 +51,7 @@ const Package = () => {
 
             <div className="max-w-2xl mx-auto mb-16 text-center mt-10">
                 <span className="font-bold tracking-wider uppercase dark:text-violet-400">Pricing</span>
-                
+
                 <h2 className="text-4xl font-bold lg:text-4xl mt-3 underline hover:underline-offset-4 decoration-lime-500">Choose your best plan</h2>
             </div>
             <div className='grid mt-4 gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
